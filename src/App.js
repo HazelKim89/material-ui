@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CopyTest from './Main/Copy.js'
+import CopyTest from './Main/Base.js'
 import MainInside from './Main/Inside.js'
 import './App.css';
 

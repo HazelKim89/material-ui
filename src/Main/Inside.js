@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles, Grid, Card, CardActionArea, CardContent, CardMedia, CardActions, Button } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography'
-import TempImage from '../TestCompos/images/hams.jpg'
+import { withStyles, Grid, Card, CardActionArea, CardContent, CardMedia} from '@material-ui/core';
+import Stocks from '../TestCompos/images/Stocks.png'
+import Search from '../TestCompos/images/search.png'
+import Order from '../TestCompos/images/order.png'
 
 const styles = theme => ({
   root: {
@@ -22,7 +23,7 @@ const styles = theme => ({
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.
-    objectFit: 'cover',
+    objectFit: 'contain',
   }
 });
 class Inside extends React.Component {
@@ -34,7 +35,7 @@ class Inside extends React.Component {
 
   render() {
     const { classes } = this.props;
-
+    const imgs = [Stocks,Search,Order]
     return (
       <Grid container className={classes.root} spacing={40}>
         <Grid item xs={12}>
@@ -47,7 +48,7 @@ class Inside extends React.Component {
                       component="img"
                       alt="Contemplative Reptile"
                       height="140"
-                      image={TempImage}
+                      image={imgs[index]}
                       title="Contemplative Reptile"
                       className={classes.media}
                     />

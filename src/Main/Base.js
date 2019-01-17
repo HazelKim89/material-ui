@@ -20,7 +20,7 @@ import Avatar from '@material-ui/core/Avatar'
 import Inventory from '@material-ui/icons/AssignmentTurnedIn'
 import SearchStock from '@material-ui/icons/YoutubeSearchedFor'
 import Order from '@material-ui/icons/ShoppingCart'
-import { Button, Icon } from '@material-ui/core';
+import { Button} from '@material-ui/core';
 
 
 const drawerWidth = 240;
@@ -82,17 +82,16 @@ const styles = theme => ({
     }),
     marginLeft: 0,
   },
-  login: {
+  logout: {
     right: 0,
     position: 'absolute',
     margin: '0px 30px 0px 0px',
   }
 });
 
-class PersistentDrawerLeft extends React.Component {
+class Base extends React.Component {
   state = {
-    open: false,
-    auth: true
+    open: false
   };
 
   handleDrawerOpen = () => {
@@ -105,7 +104,7 @@ class PersistentDrawerLeft extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
-    const { open, auth } = this.state;
+    const { open } = this.state;
 
     return (
       <div className={classes.root}>
@@ -128,7 +127,7 @@ class PersistentDrawerLeft extends React.Component {
             <Typography variant="h6" color="inherit" >
               Stock Management
             </Typography>
-            <Button color='inherit' className={classes.login}>Login</Button>
+            <Button color='inherit' className={classes.logout}>Logout</Button>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -192,9 +191,9 @@ class PersistentDrawerLeft extends React.Component {
   }
 }
 
-PersistentDrawerLeft.propTypes = {
+Base.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(PersistentDrawerLeft);
+export default withStyles(styles, { withTheme: true })(Base);
