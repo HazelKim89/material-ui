@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import DeleteIcon from '@material-ui/icons/Delete'
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
+import CopyTest from './Main/Copy.js'
+import Inside from './Main/Inside.js'
 import './App.css';
 
 class App extends Component {
   render() {
+    const insideMain = <Inside />
     return (
       <div className="App">
-        <DeleteIcon></DeleteIcon>
-        <DeleteForeverIcon />
+        <CopyTest insideMain={insideMain} list={list.menues}>
+        </CopyTest>
       </div>
     );
   }
