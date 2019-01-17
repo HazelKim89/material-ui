@@ -185,13 +185,7 @@ class PersistentDrawerLeft extends React.Component {
           })}
         >
           <div className={classes.drawerHeader} />
-            {this.props.list.map((icon,name) => {
-              <div>
-                <h4>{icon}</h4>
-                <h4>{name}</h4>
-              </div>
-            })}
-            {this.props.list}
+            {this.props.insideMain}
         </main>
       </div>
     );
