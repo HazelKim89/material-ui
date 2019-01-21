@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles, Grid, Card, CardActionArea, CardContent, CardMedia} from '@material-ui/core';
+import { withStyles, Grid, Card, CardActionArea, CardContent, CardMedia } from '@material-ui/core';
 import Stocks from '../TestCompos/images/Stocks.png'
 import Search from '../TestCompos/images/search.png'
 import Order from '../TestCompos/images/order.png'
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -35,24 +36,26 @@ class Inside extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const imgs = [Stocks,Search,Order]
+    const imgs = [Stocks, Search, Order]
     return (
       <Grid container className={classes.root} spacing={40}>
         <Grid item xs={12}>
           <Grid container className={classes.demo} justify="center" spacing={40}>
-            {["Check the stock", "Search", "Order"].map((text,index) => (
+            {["Check the stock", "Search", "Order"].map((text, index) => (
               <Grid key={index} item>
                 <Card className={classes.cards}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      alt="Contemplative Reptile"
-                      height="140"
-                      image={imgs[index]}
-                      title="Contemplative Reptile"
-                      className={classes.media}
-                    />
-                  </CardActionArea>
+                  <Link to={"/"+index}>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        alt="Contemplative Reptile"
+                        height="140"
+                        image={imgs[index]}
+                        title="Contemplative Reptile"
+                        className={classes.media}
+                      />
+                    </CardActionArea>
+                  </Link>
                   <CardContent>
                     {text}
                   </CardContent>

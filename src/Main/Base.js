@@ -21,7 +21,7 @@ import Inventory from '@material-ui/icons/AssignmentTurnedIn'
 import SearchStock from '@material-ui/icons/YoutubeSearchedFor'
 import Order from '@material-ui/icons/ShoppingCart'
 import { Button} from '@material-ui/core';
-
+import {Link} from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -86,6 +86,10 @@ const styles = theme => ({
     right: 0,
     position: 'absolute',
     margin: '0px 30px 0px 0px',
+  },
+  links:{
+    textDecoration:'none',
+    color:'unset'
   }
 });
 
@@ -124,10 +128,12 @@ class Base extends React.Component {
             >
               <MenuIcon />
             </IconButton>
+            <Link to="/" className={classes.links}>
             <Typography variant="h6" color="inherit" >
               Stock Management
             </Typography>
-            <Button color='inherit' className={classes.logout}>Logout</Button>
+            </Link>
+            <Button color='inherit' className={classes.logout} >Logout</Button>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -158,12 +164,14 @@ class Base extends React.Component {
           </List>
           <Divider />
           <List>
+            <Link to="/first" className={classes.links}>
             <ListItem button key='Check the stock'>
               <ListItemIcon>
                 <Inventory />
               </ListItemIcon>
               <ListItemText primary='Check the stock' />
             </ListItem>
+            </Link>
             <ListItem button key='Stock search'>
               <ListItemIcon>
                 <SearchStock />
