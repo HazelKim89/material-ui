@@ -1,27 +1,27 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import { Button} from '@material-ui/core';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Divider from '@material-ui/core/Divider';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar'
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Inventory from '@material-ui/icons/AssignmentTurnedIn'
 import SearchStock from '@material-ui/icons/YoutubeSearchedFor'
 import Order from '@material-ui/icons/ShoppingCart'
-import { Button} from '@material-ui/core';
-import {Link} from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -164,7 +164,7 @@ class Base extends React.Component {
           </List>
           <Divider />
           <List>
-            <Link to="/first" className={classes.links}>
+            <Link to="/0" className={classes.links}>
             <ListItem button key='Check the stock'>
               <ListItemIcon>
                 <Inventory />
@@ -172,18 +172,22 @@ class Base extends React.Component {
               <ListItemText primary='Check the stock' />
             </ListItem>
             </Link>
+            <Link to="/1" className={classes.links}>
             <ListItem button key='Stock search'>
               <ListItemIcon>
                 <SearchStock />
               </ListItemIcon>
               <ListItemText primary='Stock search' />
             </ListItem>
+            </Link>
+            <Link to="/2" className={classes.links}>
             <ListItem button key='Order'>
               <ListItemIcon>
                 <Order />
               </ListItemIcon>
               <ListItemText primary='Order' />
             </ListItem>
+            </Link>
           </List>
         </Drawer>
         <main
