@@ -1,6 +1,6 @@
 # Reactを使うために必要な基本概念
 
-## JSX (Javascript + XML)  
+## **JSX (Javascript + XML)**  
  既存JavaScriptの拡張文法  
  本体JavaScriptの中でHTML使用可能
  
@@ -49,4 +49,72 @@ import Image from './images/image.jpg'
 
 注意事項
  - タグは必ず閉めてください
- HTMLの場合は時々タグを閉めることを忘れてもほとんど問題なく実行ができますが、JSXではエラーが発生  
+ HTMLの場合は時々タグを閉めることを忘れてもほとんど問題なく実行ができますが、JSXではエラーが発生   
+
+ ## **props & state**  
+
+|    props    |    state    |  
+|:-------------:|:-------------:|
+| 不変のデータ   |   可変のデータ |  
+| 親から渡される  |  コンポーネントによって保持|  
+|    変更不可    |     変更可   |  
+|デフォルト値の設定と検証が可能|プライベートであるべき|
+
+### Props  
+propsは　**'this.'** キーワードを通じて照会できる  
+```
+import React, { Component } from 'react'
+
+class MyName extends Component {
+  render() {
+    return (
+      <div>
+        Hi ! My name is <b>{this.props.name}</b> .
+      </div>
+    )
+  }
+}
+
+export default MyName;
+```
+```
+import React, { Component } from 'react'
+import MyName from './MyName'
+
+class App extends Component {
+  render() {
+    return (
+      <MyName name="React" />
+    )
+  }
+}
+
+export default App;
+```
+
+**defaultProps**  
+親コンポーネントからpropsを忘れた時、あるいは態々空欄におく必要がある時がある  
+このような場合はpropsのデフォルメを設定することが可能
+
+```
+class My Name extends Component {
+  render() {
+    return (
+      <div>
+        Hi ! My name is <b>{this.props.name}</b> .
+      </div>
+    )
+  }
+}
+MyName.defaultProps = {
+  name: 'defaultName'
+};
+
+```
+
+
+
+<br><br><br><br>
+出所  
+ - https://qiita.com/kyrieleison/items/78b3295ff3f37969ab50
+ - https://velopert.com/3629
