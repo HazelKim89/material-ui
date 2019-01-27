@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import Base from '../Main/Base.js'
+import FirstCompo from '../Containers/First.js'
 
-class Test extends Component {
+class First extends Component {
   render(){
-    const first = <h1>Check the stock</h1>
+    const first = <FirstCompo />
     return(
       <div>
         <Base insideMain={first} />
@@ -12,4 +13,4 @@ class Test extends Component {
   }
 }
 
-export default Test
+export default First 
