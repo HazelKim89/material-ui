@@ -60,7 +60,7 @@ import Image from './images/image.jpg'
 |    変更不可    |     変更可   |  
 |デフォルト値の設定と検証が可能|プライベートであるべき|
 
-### Props  
+## Props  
 propsは　**'this.'** キーワードを通じて照会できる  
 ```
 import React, { Component } from 'react'
@@ -112,6 +112,106 @@ MyName.defaultProps = {
 
 ```
 
+## State  
+動的なデータを利用する時は**state**を使う  
+
+### **stateの定義**  
+  
+1. class fields 利用  
+    ```
+    class Greeting extends Component {
+      state = {
+        greeting: 'Hello'
+      }
+      render(){
+        return(
+          <div>
+            <h1>{this.state.greeting}</h1>
+          </div>   
+        )
+      }
+    }
+    ```  
+2. constructor(props)利用  
+    ```
+    class Greeting extends Component {
+      constructor(props){
+        super(props)
+        this.state = {
+          greeting: 'Hello'
+        }
+      }
+      render(){
+        return(
+          ....
+        )
+      }
+    }
+    ```
+### **state内変数の変更**  
+--> stateの中である変数値を変更するためには必ず **this.setState()** メソッドを使う  
+  ```
+  class Greeting extends Compnent{
+    state = {
+      clicked : false
+    }
+    btnClicked = () => {
+      this.setState({
+        clicked : true
+      })
+      console.log(this.state.clicked)
+    }
+
+    render(){
+      return(
+        <div>
+          <button onClick={this.btnClicked}>Click Me</Button>
+        </div>
+      )
+    }
+  }
+  ```
+しかし、'setState'は深い所までは確認ができない  
+例えば、  
+```
+state = {
+    id: 0,
+    info: {
+      name: 'Julia',
+      age: 24 
+    }
+  }
+  ・
+  ・
+  ・
+  changeValue = () => {
+    this.setState({
+      info: {
+        age: 26
+      }
+    })
+  }
+
+  [changeValue実行後]  
+  
+  state = {
+    id: 0,
+    info: {
+      age: 26
+    }
+  }  
+```  
+stateのinfo中にあった‘age’は変更されますが、ほかの変数‘name’がなくなる  
+[解決方法]  
+```
+this.setState({
+  info: {
+    ...this.state.info,
+    age: 26
+  }
+})
+```  
+スプレッド演算子使用すると、元々持っていた変数を失わず変更可能
 
 
 <br><br><br><br>
